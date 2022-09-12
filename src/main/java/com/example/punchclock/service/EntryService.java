@@ -3,15 +3,20 @@ package com.example.punchclock.service;
 import com.example.punchclock.model.Entry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+@Service
 public class EntryService {
 
-    @Autowired
     EntityRepository entityRepository;
+
+    @Autowired
+    public EntryService(EntityRepository entityRepository) {
+        this.entityRepository = entityRepository;
+    }
 
     public List<Entry> findAll() {
         return (List<Entry>) entityRepository.findAll();
