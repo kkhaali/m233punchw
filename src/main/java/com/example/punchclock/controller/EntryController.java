@@ -18,18 +18,18 @@ public class EntryController {
         return entryService.findAll();
     }
 
-    @PostMapping("/entry")
+    @PostMapping("/entries")
     public Entry create(@RequestBody Entry entry) {
         entryService.createEntry(entry);
         return entry;
     }
 
-    @PutMapping("/entry/{id}")
+    @PutMapping("/entries/{id}")
     public Entry update(@RequestBody Entry entry, @PathVariable Long id) {
         return entryService.update(id, entry);
     }
 
-    @DeleteMapping("/entry/{id}")
+    @DeleteMapping("/entries/{id}")
     public void delete(@PathVariable Long id) {
         entryService.delete(id);
     }
