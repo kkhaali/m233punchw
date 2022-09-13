@@ -26,7 +26,7 @@ public class EntryController {
             entryService.createEntry(entry);
             return new ResponseEntity(entry, HttpStatus.OK);
         } else {
-            return new ResponseEntity("CheckOut time has to be bevor checkIn time", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity("CheckOut time has to be before checkIn time", HttpStatus.BAD_REQUEST);
         }
     }
 

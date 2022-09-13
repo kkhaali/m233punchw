@@ -2,6 +2,7 @@ package com.example.punchclock.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 public class Entry {
@@ -10,11 +11,17 @@ public class Entry {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
+    @Column(nullable = true)
+    private long category;
+
     @Column(nullable = false)
     private LocalDateTime checkIn = LocalDateTime.now();
 
     @Column(nullable = true)
     private LocalDateTime checkOut;
+
+    @ManyToMany
+    private Set<Tag> tag;
 
     public Long getId() {
         return id;
@@ -39,4 +46,5 @@ public class Entry {
     public void setCheckOut(LocalDateTime checkOut) {
         this.checkOut = checkOut;
     }
+
 }
